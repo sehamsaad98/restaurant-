@@ -16,7 +16,8 @@ class RestaurantFactory extends Factory
             'address' => $this->faker->address,
             'phone_number' => $this->faker->phoneNumber,
             'image' => $this->faker->paragraph,
-            // Add more fields as necessary
+            'trader_id' => 5,
+
         ];
     }
 }

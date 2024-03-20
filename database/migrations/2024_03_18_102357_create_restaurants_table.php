@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive','refused'])->default('inactive');
             $table->foreignId('trader_id')->constrained('traders');
             $table->string('image', 255)->nullable();
+            $table->text('Reason_fo_refuse')->nullable(); 
             $table->softDeletes();
             $table->timestamps();
         });

@@ -14,15 +14,13 @@ class TraderRestaurantController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'phone_number' => 'required|string|max:255',
-            // Add validation for 'image' if necessary, e.g. 'image' => 'sometimes|file|image|max:10240'
         ]);
     
         $restaurant = new Restaurant();
         $restaurant->name = $request->name;
         $restaurant->address = $request->address;
         $restaurant->phone_number = $request->phone_number;
-        // Properly handle the image file if necessary
-        // $restaurant->image = $request->image;
+
     
         $restaurant->trader_id = auth()->id();; 
         $restaurant->save();

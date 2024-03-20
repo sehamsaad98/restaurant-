@@ -16,7 +16,7 @@ class Trader extends Authenticatable implements JWTSubject
     
     protected $table = 'traders';
 
-    public function restaurants() // Renamed for clarity and convention
+    public function restaurants()
     {
         return $this->hasMany(Restaurant::class, 'trader_id');
     }

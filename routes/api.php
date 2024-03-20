@@ -59,6 +59,9 @@ Route::middleware('auth:user')->group(function () {
 });
 /////////////// user routes Ends ///////////////////
 
+
+
+
 /////////////// Trader routes Start ///////////////////
 
 Route::middleware('auth:trader')->group(function () {

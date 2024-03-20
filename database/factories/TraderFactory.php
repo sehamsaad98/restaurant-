@@ -23,7 +23,6 @@ class TraderFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'password' => bcrypt('secret'), 
-            'trader_id' => 5,
 
          
         ];

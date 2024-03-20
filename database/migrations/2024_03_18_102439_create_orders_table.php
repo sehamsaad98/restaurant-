@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('restaurant_id')->constrained('restaurants');
-            $table->foreignId('menu_id')->constrained('menus');
+            $table->date('order_date');
             $table->enum('status', ['Under Processing', 'Under Delivery', 'Delivered to Customer'])->default('Under Processing');
             $table->softDeletes();
             $table->timestamps();
