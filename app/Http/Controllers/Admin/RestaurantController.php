@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use Illuminate\Http\Response;
@@ -44,4 +45,8 @@ class RestaurantController extends Controller
                    'resturant' => $resturant
                ]);
         }
+
+
+
+
 }

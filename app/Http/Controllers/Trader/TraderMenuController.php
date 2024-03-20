@@ -8,13 +8,11 @@ use App\Models\Menu;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class TraderMenuController extends Controller
 {
-
     public function store(Request $request)
     {
         $request->validate([
-            'restaurant_id' => 'required|integer|exists:restaurants,id',
             'name' => 'required|string',
             'description' => 'required|string',
             'price' =>'required|numeric',
@@ -33,8 +31,8 @@ class MenuController extends Controller
         $menu = new Menu();
         $menu->name = $request->name;
         $menu->description = $request->description;
-        // Assign other fields as necessary
-        $menu->restaurant_id = $restaurant->id;
+        $menu->price = $request->price;
+        $menu->restaurant_id  = $restaurant->id;
         $menu->save();
     
         return response()->json(['message' => 'Menu item added successfully', 'data' => $menu], 201);
@@ -49,6 +47,4 @@ class MenuController extends Controller
 
         return MenuResource::collection($menus);
     }
-
-
 }

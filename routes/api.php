@@ -4,10 +4,12 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Trader\TraderRestaurantController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\TraderController;
-
+use App\Http\Controllers\Trader\TraderMenuController;
+use App\Http\Controllers\User\UserRestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,14 +52,18 @@ Route::patch('admin/restaurant/{id}/status', [RestaurantController::class, 'upda
 
 /////////////// user routes Start ///////////////////
 Route::middleware('auth:user')->group(function () {
+ Route::get('restaurants', [UserRestaurantController::class, 'activeRestaurants']);
+ Route::get('/restaurants/{restaurantId}/menus', [UserRestaurantController::class, 'getRestaurantMenu']);
+
 
 });
 /////////////// user routes Ends ///////////////////
 
 /////////////// Trader routes Start ///////////////////
+
 Route::middleware('auth:trader')->group(function () {
-    Route::post('restaurant/create', [RestaurantController::class, 'store']);
-    Route::get('Trader/creatMenu', [AdminController::class, 'store']);
+    Route::post('menus', [TraderMenuController::class, 'store']);
+    Route::post('restaurants', [TraderRestaurantController::class, 'store']);
 
 });
 /////////////// Trader routes Ends ///////////////////
